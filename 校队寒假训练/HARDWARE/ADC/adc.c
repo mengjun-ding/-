@@ -104,21 +104,21 @@ void DMA2_Stream0_IRQHandler(void)
     {
         DMA_ClearITPendingBit(DMA2_Stream0, DMA_IT_TCIF0);//清除标志位
  
-        if(DMA_GetCurrentMemoryTarget(DMA2_Stream0))//正在访问Buffer1
+        if(DMA_GetCurrentMemoryTarget(DMA2_Stream0))//正在访问Buffer0
         {
-            //现在访问是Buufer1,所以写Buffer0.
+            //dma现在访问是Buufer0,所以cpu访问Buffer1.
             for(i = 1020; i < 1024; i++)
             {
                 printf("%d\r\n",ADC_Buff1[i]);
             }
         }
-        else
+        else//dma现在访问是Buufer1,所以cpu访问Buffer0.
         {
             for(i = 0; i < 4; i++)
             {
- 
                 printf("%d\r\n",ADC_Buff0[i]);
             }
+						printf("\r\n");
         }
  
     }

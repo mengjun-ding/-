@@ -1,8 +1,9 @@
 #include "sys.h"
 #include "dac.h"
+#include "common.h"
 
-extern const u16 sinwave[100];
-
+extern u16 dacwave_buff0[SAMPLE_LENGTH];
+extern u16 dacwave_buff1[SAMPLE_LENGTH];
 
 //最好进行中断优先级分组  貌似不需要TIM2是没有中断服务函数的
 void Dac1_Init(void)
@@ -38,7 +39,7 @@ void Dac1_Init(void)
   
   //定时器配置
 	TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);//初始化结构体
-	TIM_TimeBaseStructure.TIM_Period = 100; //周期100
+	TIM_TimeBaseStructure.TIM_Period = 100-1; //周期100
 	TIM_TimeBaseStructure.TIM_Prescaler = 0x0; //预分频0
 	TIM_TimeBaseStructure.TIM_ClockDivision = 0x0;//分频0
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up; //向上计数 每次触发时间100*1/84M
@@ -51,9 +52,9 @@ void Dac1_Init(void)
 	DMA_DeInit(DMA1_Stream5);
   DMA_InitStructure.DMA_Channel = DMA_Channel_7;  
   DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&(DAC->DHR12R1);//DAC1 12位 右对齐地址
-	DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)&sinwave;
+	DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)&dacwave_buff0;
 	DMA_InitStructure.DMA_DIR = DMA_DIR_MemoryToPeripheral;//从存储器到外设
-	DMA_InitStructure.DMA_BufferSize = 100;//一次输出数据
+	DMA_InitStructure.DMA_BufferSize = SAMPLE_LENGTH;//一次输出数据
 	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;//外设地址不递增
 	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable; //内存地址递增
 	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;//宽度为半字
@@ -64,6 +65,9 @@ void Dac1_Init(void)
   DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;  //突发单次传输
   DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
 	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;//循环发送模式
+	
+	DMA_DoubleBufferModeConfig(DMA1_Stream5,(uint32_t)&dacwave_buff1,DMA_Memory_1);
+	DMA_DoubleBufferModeCmd(DMA1_Stream5,ENABLE);//开启双缓冲
 	
 	DMA_Init(DMA1_Stream5, &DMA_InitStructure);    
         
