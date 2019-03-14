@@ -2,6 +2,7 @@
 #include "common.h"
 #include "adc.h"
 #include "usart.h"
+#include "fft.h"
 
 extern u16 ADC_Buff0[SAMPLE_LENGTH];//4^5
 extern u16 ADC_Buff1[SAMPLE_LENGTH];//4^5
@@ -11,6 +12,8 @@ extern u16 dacwave_buff1[SAMPLE_LENGTH];
 
 extern float fft_outputbuff[SAMPLE_LENGTH*2];	//FFT输入数组
 extern float fft_inputbuff[SAMPLE_LENGTH];	//FFT输出数组
+
+extern float dsp_signal[SAMPLE_LENGTH];
 
 //最好改成定时器触发的单次转换 以匹配DAC的转换 实现转换的同步
 void Adc_Init(void)
@@ -129,31 +132,45 @@ void DMA2_Stream0_IRQHandler(void)
     {
         DMA_ClearITPendingBit(DMA2_Stream0, DMA_IT_TCIF0);//清除标志位
  
-        if(DMA_GetCurrentMemoryTarget(DMA2_Stream0))//正在访问Buffer
+        if(DMA_GetCurrentMemoryTarget(DMA2_Stream0))//正在访问Buffer1
         {
-            //现在访问是Buufer0,所以cpu访问Buffer1.
-					for(i=0;i<SAMPLE_LENGTH;i++)
+				//现在访问是Buufer1,所以cpu访问Buffer0.
+//					DMA_ITConfig(DMA2_Stream0, DMA_IT_TC, DISABLE); //传输完成中断 允许更新中断（必要）
+					for(i=0;i<SAMPLE_LENGTH;i++)//赋值完全可以用string。h
 					{
-						dacwave_buff0[i]=ADC_Buff0[i];
+						fft_inputbuff[i]=ADC_Buff0[i]/1.0;
 					}
-//            for(i = 1020; i < SAMPLE_LENGTH; i++)
-//            {
-//                printf("%d\r\n",ADC_Buff1[i]);
-//            }
+//					for(i=0;i<SAMPLE_LENGTH;i++)
+//					{
+//						printf("%f\r\n",fft_inputbuff[i]);
+//					}
+					fft_1024(fft_outputbuff,fft_inputbuff);
+//					printf("output:\r\n");
+//					for(i=0;i<SAMPLE_LENGTH;i++)
+//					{
+//						printf("%f+1j*%f\r\n",fft_outputbuff[2*i],fft_outputbuff[2*i+1]);
+//					}
+					ifft_fliter_1024(dsp_signal,fft_outputbuff);
+
+					for(i=0;i<SAMPLE_LENGTH;i++)//有没有四舍五入的函数啊
+					{
+						dacwave_buff0[i]=(u16)dsp_signal[i];
+					}
+					
         }
         else
         {
-					for(i=0;i<SAMPLE_LENGTH;i++)
+					for(i=0;i<SAMPLE_LENGTH;i++)//赋值完全可以用string。h
 					{
-						dacwave_buff1[i]=ADC_Buff1[i];
+						fft_inputbuff[i]=ADC_Buff1[i]/1.0;
 					}
-//            for(i = 0; i < 4; i++)
-//            {
-// 
-//                printf("%d\r\n",ADC_Buff0[i]);
-//            }
-//						printf("\r\n");
+					fft_1024(fft_outputbuff,fft_inputbuff);
+					ifft_fliter_1024(dsp_signal,fft_outputbuff);
+					
+					for(i=0;i<SAMPLE_LENGTH;i++)//有没有四舍五入的函数啊
+					{
+						dacwave_buff1[i]=(u16)dsp_signal[i];
+					}
         }
- 
     }
 	}

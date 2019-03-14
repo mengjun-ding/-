@@ -1,5 +1,5 @@
 Dependencies for Project 'Filter', Target 'Filter': (DO NOT MODIFY !)
-F (.\main.c)(0x5C77FBC1)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\ADC -I..\COMMON -I..\HARDWARE\DAC -I..\DSP_LIB\FFT -I..\DSP_LIB -I..\DSP_LIB\Include-I C:\Users\mengj\Desktop\º®¼ÙÑµÁ·\AD+DAºÏ²¢\USER\RTE-I D:\software\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-I D:\software\MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5C79310C)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\ADC -I..\COMMON -I..\HARDWARE\DAC -I..\DSP_LIB\FFT -I..\DSP_LIB -I..\DSP_LIB\Include-I C:\Users\mengj\Desktop\º®¼ÙÑµÁ·\AD+DAºÏ²¢\USER\RTE-I D:\software\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-I D:\software\MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\SYSTEM\sys\sys.h)(0x5710F356)
 I (..\USER\stm32f4xx.h)(0x5C77F403)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -157,7 +157,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
-F (..\HARDWARE\ADC\adc.c)(0x5C77EE48)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\ADC -I..\COMMON -I..\HARDWARE\DAC -I..\DSP_LIB\FFT -I..\DSP_LIB -I..\DSP_LIB\Include-I C:\Users\mengj\Desktop\º®¼ÙÑµÁ·\AD+DAºÏ²¢\USER\RTE-I D:\software\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-I D:\software\MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o ..\obj\adc.o --omf_browse ..\obj\adc.crf --depend ..\obj\adc.d)
+F (..\HARDWARE\ADC\adc.c)(0x5C793819)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\ADC -I..\COMMON -I..\HARDWARE\DAC -I..\DSP_LIB\FFT -I..\DSP_LIB -I..\DSP_LIB\Include-I C:\Users\mengj\Desktop\º®¼ÙÑµÁ·\AD+DAºÏ²¢\USER\RTE-I D:\software\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-I D:\software\MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o ..\obj\adc.o --omf_browse ..\obj\adc.crf --depend ..\obj\adc.d)
 I (..\SYSTEM\sys\sys.h)(0x5710F356)
 I (..\USER\stm32f4xx.h)(0x5C77F403)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -197,6 +197,7 @@ I (..\COMMON\common.h)(0x5C77B4DA)
 I (..\HARDWARE\ADC\adc.h)(0x5C714B15)
 I (..\SYSTEM\usart\usart.h)(0x5710F356)
 I (D:\software\MDK5\ARM\ARMCC\include\stdio.h)(0x5B4DB2DD)
+I (..\DSP_LIB\FFT\fft.h)(0x5C77EE71)
 F (..\HARDWARE\ADC\adc.h)(0x5C714B15)()
 F (..\HARDWARE\DAC\dac.c)(0x5C779218)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\ADC -I..\COMMON -I..\HARDWARE\DAC -I..\DSP_LIB\FFT -I..\DSP_LIB -I..\DSP_LIB\Include-I C:\Users\mengj\Desktop\º®¼ÙÑµÁ·\AD+DAºÏ²¢\USER\RTE-I D:\software\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-I D:\software\MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o ..\obj\dac.o --omf_browse ..\obj\dac.crf --depend ..\obj\dac.d)
 I (..\SYSTEM\sys\sys.h)(0x5710F356)
@@ -238,7 +239,7 @@ I (..\HARDWARE\DAC\dac.h)(0x5C70FE4B)
 I (..\COMMON\common.h)(0x5C77B4DA)
 F (..\COMMON\common.h)(0x5C77B4DA)()
 F (..\DSP_LIB\arm_cortexM4lf_math.lib)(0x5B60FF14)()
-F (..\DSP_LIB\FFT\fft.c)(0x5C77FC22)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\ADC -I..\COMMON -I..\HARDWARE\DAC -I..\DSP_LIB\FFT -I..\DSP_LIB -I..\DSP_LIB\Include-I C:\Users\mengj\Desktop\º®¼ÙÑµÁ·\AD+DAºÏ²¢\USER\RTE-I D:\software\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-I D:\software\MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o ..\obj\fft.o --omf_browse ..\obj\fft.crf --depend ..\obj\fft.d)
+F (..\DSP_LIB\FFT\fft.c)(0x5C79374B)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\ADC -I..\COMMON -I..\HARDWARE\DAC -I..\DSP_LIB\FFT -I..\DSP_LIB -I..\DSP_LIB\Include-I C:\Users\mengj\Desktop\º®¼ÙÑµÁ·\AD+DAºÏ²¢\USER\RTE-I D:\software\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-I D:\software\MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_USED -D__FPU_PRESENT -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o ..\obj\fft.o --omf_browse ..\obj\fft.crf --depend ..\obj\fft.d)
 I (..\DSP_LIB\FFT\fft.h)(0x5C77EE71)
 I (..\SYSTEM\sys\sys.h)(0x5710F356)
 I (..\USER\stm32f4xx.h)(0x5C77F403)
